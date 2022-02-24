@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm32v5` builds of [the `ruby` official image](https://hub.docker.com/_/ruby) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -28,26 +30,20 @@ WARNING:
 -	[`3.1.1-slim-bullseye`, `3.1-slim-bullseye`, `3-slim-bullseye`, `slim-bullseye`, `3.1.1-slim`, `3.1-slim`, `3-slim`, `slim`](https://github.com/docker-library/ruby/blob/cf80cd6600ded0516cb70087d38823da4c52774e/3.1/slim-bullseye/Dockerfile)
 -	[`3.1.1-buster`, `3.1-buster`, `3-buster`, `buster`](https://github.com/docker-library/ruby/blob/cf80cd6600ded0516cb70087d38823da4c52774e/3.1/buster/Dockerfile)
 -	[`3.1.1-slim-buster`, `3.1-slim-buster`, `3-slim-buster`, `slim-buster`](https://github.com/docker-library/ruby/blob/cf80cd6600ded0516cb70087d38823da4c52774e/3.1/slim-buster/Dockerfile)
--	[`3.1.1-alpine3.15`, `3.1-alpine3.15`, `3-alpine3.15`, `alpine3.15`, `3.1.1-alpine`, `3.1-alpine`, `3-alpine`, `alpine`](https://github.com/docker-library/ruby/blob/cf80cd6600ded0516cb70087d38823da4c52774e/3.1/alpine3.15/Dockerfile)
--	[`3.1.1-alpine3.14`, `3.1-alpine3.14`, `3-alpine3.14`, `alpine3.14`](https://github.com/docker-library/ruby/blob/cf80cd6600ded0516cb70087d38823da4c52774e/3.1/alpine3.14/Dockerfile)
 -	[`3.0.3-bullseye`, `3.0-bullseye`, `3.0.3`, `3.0`](https://github.com/docker-library/ruby/blob/c57d85bd8745dcd12d2713c177d6dbc5844318b7/3.0/bullseye/Dockerfile)
 -	[`3.0.3-slim-bullseye`, `3.0-slim-bullseye`, `3.0.3-slim`, `3.0-slim`](https://github.com/docker-library/ruby/blob/c57d85bd8745dcd12d2713c177d6dbc5844318b7/3.0/slim-bullseye/Dockerfile)
 -	[`3.0.3-buster`, `3.0-buster`](https://github.com/docker-library/ruby/blob/c57d85bd8745dcd12d2713c177d6dbc5844318b7/3.0/buster/Dockerfile)
 -	[`3.0.3-slim-buster`, `3.0-slim-buster`](https://github.com/docker-library/ruby/blob/c57d85bd8745dcd12d2713c177d6dbc5844318b7/3.0/slim-buster/Dockerfile)
--	[`3.0.3-alpine3.15`, `3.0-alpine3.15`, `3.0.3-alpine`, `3.0-alpine`](https://github.com/docker-library/ruby/blob/1e1d46db1542d9869ef677ebc2dd56aecb4ececa/3.0/alpine3.15/Dockerfile)
--	[`3.0.3-alpine3.14`, `3.0-alpine3.14`](https://github.com/docker-library/ruby/blob/c57d85bd8745dcd12d2713c177d6dbc5844318b7/3.0/alpine3.14/Dockerfile)
 -	[`2.7.5-bullseye`, `2.7-bullseye`, `2-bullseye`, `2.7.5`, `2.7`, `2`](https://github.com/docker-library/ruby/blob/928ce974a8356c21238af67b50680cc42fc489fe/2.7/bullseye/Dockerfile)
 -	[`2.7.5-slim-bullseye`, `2.7-slim-bullseye`, `2-slim-bullseye`, `2.7.5-slim`, `2.7-slim`, `2-slim`](https://github.com/docker-library/ruby/blob/928ce974a8356c21238af67b50680cc42fc489fe/2.7/slim-bullseye/Dockerfile)
 -	[`2.7.5-buster`, `2.7-buster`, `2-buster`](https://github.com/docker-library/ruby/blob/928ce974a8356c21238af67b50680cc42fc489fe/2.7/buster/Dockerfile)
 -	[`2.7.5-slim-buster`, `2.7-slim-buster`, `2-slim-buster`](https://github.com/docker-library/ruby/blob/928ce974a8356c21238af67b50680cc42fc489fe/2.7/slim-buster/Dockerfile)
--	[`2.7.5-alpine3.15`, `2.7-alpine3.15`, `2-alpine3.15`, `2.7.5-alpine`, `2.7-alpine`, `2-alpine`](https://github.com/docker-library/ruby/blob/1e1d46db1542d9869ef677ebc2dd56aecb4ececa/2.7/alpine3.15/Dockerfile)
--	[`2.7.5-alpine3.14`, `2.7-alpine3.14`, `2-alpine3.14`](https://github.com/docker-library/ruby/blob/928ce974a8356c21238af67b50680cc42fc489fe/2.7/alpine3.14/Dockerfile)
 -	[`2.6.9-bullseye`, `2.6-bullseye`, `2.6.9`, `2.6`](https://github.com/docker-library/ruby/blob/d339fc4298b24ad6fb9f6758fde30c0a2643eae3/2.6/bullseye/Dockerfile)
 -	[`2.6.9-slim-bullseye`, `2.6-slim-bullseye`, `2.6.9-slim`, `2.6-slim`](https://github.com/docker-library/ruby/blob/d339fc4298b24ad6fb9f6758fde30c0a2643eae3/2.6/slim-bullseye/Dockerfile)
 -	[`2.6.9-buster`, `2.6-buster`](https://github.com/docker-library/ruby/blob/d339fc4298b24ad6fb9f6758fde30c0a2643eae3/2.6/buster/Dockerfile)
 -	[`2.6.9-slim-buster`, `2.6-slim-buster`](https://github.com/docker-library/ruby/blob/d339fc4298b24ad6fb9f6758fde30c0a2643eae3/2.6/slim-buster/Dockerfile)
--	[`2.6.9-alpine3.15`, `2.6-alpine3.15`, `2.6.9-alpine`, `2.6-alpine`](https://github.com/docker-library/ruby/blob/1e1d46db1542d9869ef677ebc2dd56aecb4ececa/2.6/alpine3.15/Dockerfile)
--	[`2.6.9-alpine3.14`, `2.6-alpine3.14`](https://github.com/docker-library/ruby/blob/d339fc4298b24ad6fb9f6758fde30c0a2643eae3/2.6/alpine3.14/Dockerfile)
+
+[![arm32v5/ruby build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm32v5/job/ruby.svg?label=arm32v5/ruby%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v5/job/ruby/)
 
 # Quick reference (cont.)
 
@@ -81,7 +77,7 @@ Ruby is a dynamic, reflective, object-oriented, general-purpose, open-source pro
 ## Create a `Dockerfile` in your Ruby app project
 
 ```dockerfile
-FROM ruby:3.0
+FROM arm32v5/ruby:3.0
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
@@ -110,7 +106,7 @@ $ docker run -it --name my-running-script my-ruby-app
 The above example `Dockerfile` expects a `Gemfile.lock` in your app directory. This `docker run` will help you generate one. Run it in the root of your app, next to the `Gemfile`:
 
 ```console
-$ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:3.0 bundle install
+$ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app arm32v5/ruby:3.0 bundle install
 ```
 
 ## Run a single Ruby script
@@ -118,7 +114,7 @@ $ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:3.0 bundle install
 For many simple, single file projects, you may find it inconvenient to write a complete `Dockerfile`. In such cases, you can run a Ruby script by using the Ruby Docker image directly:
 
 ```console
-$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp ruby:3.0 ruby your-daemon-or-script.rb
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp arm32v5/ruby:3.0 ruby your-daemon-or-script.rb
 ```
 
 ## Encoding
@@ -135,9 +131,9 @@ If these cause issues for your use case (running multiple Ruby applications in a
 
 # Image Variants
 
-The `ruby` images come in many flavors, each designed for a specific use case.
+The `arm32v5/ruby` images come in many flavors, each designed for a specific use case.
 
-## `ruby:<version>`
+## `arm32v5/ruby:<version>`
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
@@ -145,17 +141,9 @@ Some of these tags may have names like bullseye or buster in them. These are the
 
 This tag is based off of [`buildpack-deps`](https://hub.docker.com/_/buildpack-deps/). `buildpack-deps` is designed for the average user of Docker who has many images on their system. It, by design, has a large number of extremely common Debian packages. This reduces the number of packages that images that derive from it need to install, thus reducing the overall size of all images on your system.
 
-## `ruby:<version>-slim`
+## `arm32v5/ruby:<version>-slim`
 
-This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `ruby`. Unless you are working in an environment where *only* the `ruby` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
-
-## `ruby:<version>-alpine`
-
-This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
-
-This variant is useful when final image size being as small as possible is your primary concern. The main caveat to note is that it does use [musl libc](https://musl.libc.org) instead of [glibc and friends](https://www.etalabs.net/compare_libcs.html), so software will often run into issues depending on the depth of their libc requirements/assumptions. See [this Hacker News comment thread](https://news.ycombinator.com/item?id=10782897) for more discussion of the issues that might arise and some pro/con comparisons of using Alpine-based images.
-
-To minimize image size, it's uncommon for additional related tools (such as `git` or `bash`) to be included in Alpine-based images. Using this image as a base, add the things you need in your own Dockerfile (see the [`alpine` image description](https://hub.docker.com/_/alpine/) for examples of how to install packages if you are unfamiliar).
+This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `arm32v5/ruby`. Unless you are working in an environment where *only* the `arm32v5/ruby` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
 # License
 
