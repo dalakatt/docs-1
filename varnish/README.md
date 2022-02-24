@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `riscv64` builds of [the `varnish` official image](https://hub.docker.com/_/varnish) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,11 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`fresh`, `7.0.2`, `7.0`, `latest`](https://github.com/varnish/docker-varnish/blob/6423e32e0afd20fa876276e1525cb318920fbefa/fresh/debian/Dockerfile)
--	[`fresh-alpine`, `7.0.2-alpine`, `7.0-alpine`, `alpine`](https://github.com/varnish/docker-varnish/blob/6423e32e0afd20fa876276e1525cb318920fbefa/fresh/alpine/Dockerfile)
--	[`old`, `6.6.2`, `6.6`](https://github.com/varnish/docker-varnish/blob/6423e32e0afd20fa876276e1525cb318920fbefa/old/debian/Dockerfile)
--	[`old-alpine`, `6.6.2-alpine`, `6.6-alpine`](https://github.com/varnish/docker-varnish/blob/6423e32e0afd20fa876276e1525cb318920fbefa/old/alpine/Dockerfile)
--	[`stable`, `6.0.10`, `6.0`](https://github.com/varnish/docker-varnish/blob/d1212e4b8fd35b58c19b01ed389f8841d0a4ea38/stable/debian/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `riscv64` ARCHITECTURE
+
+[![riscv64/varnish build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/riscv64/job/varnish.svg?label=riscv64/varnish%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/riscv64/job/varnish/)
 
 # Quick reference (cont.)
 
@@ -76,13 +76,13 @@ Then run:
 ```console
 # we need both a configuration file at /etc/varnish/default.vcl
 # and our workdir to be mounted as tmpfs to avoid disk I/O
-$ docker run -v /path/to/default.vcl:/etc/varnish/default.vcl:ro --tmpfs /var/lib/varnish:exec varnish
+$ docker run -v /path/to/default.vcl:/etc/varnish/default.vcl:ro --tmpfs /var/lib/varnish:exec riscv64/varnish
 ```
 
 Alternatively, a simple `Dockerfile` can be used to generate a new image that includes the necessary `default.vcl` (which is a much cleaner solution than the bind mount above):
 
 ```dockerfile
-FROM varnish
+FROM riscv64/varnish
 
 COPY default.vcl /etc/varnish/
 ```
@@ -115,27 +115,27 @@ docker run varnish varnishreload -h
 By default, the containers will use a cache size of 100MB, which is usually a bit too small, but you can quickly set it through the `VARNISH_SIZE` environment variable:
 
 ```console
-$ docker run --tmpfs /var/lib/varnish:exec -e VARNISH_SIZE=2G varnish
+$ docker run --tmpfs /var/lib/varnish:exec -e VARNISH_SIZE=2G riscv64/varnish
 ```
 
-Additionally, you can add arguments to `docker run` after `varnish`, if the first one starts with a `-`, they will be appendend to the [default command](https://github.com/varnish/docker-varnish/blob/master/docker-varnish-entrypoint#L8):
+Additionally, you can add arguments to `docker run` after `riscv64/varnish`, if the first one starts with a `-`, they will be appendend to the [default command](https://github.com/varnish/docker-varnish/blob/master/docker-varnish-entrypoint#L8):
 
 ```console
 # extend the default keep period
-$ docker run --tmpfs /var/lib/varnish:exec -e VARNISH_SIZE=2G varnish -p default_keep=300
+$ docker run --tmpfs /var/lib/varnish:exec -e VARNISH_SIZE=2G riscv64/varnish -p default_keep=300
 ```
 
-If your first argument after `varnish` doesn't start with `-`, it will be interpreted as a command to override the default one:
+If your first argument after `riscv64/varnish` doesn't start with `-`, it will be interpreted as a command to override the default one:
 
 ```console
 # show the command-line options
-$ docker run varnish varnishd -?
+$ docker run riscv64/varnish varnishd -?
 
 # list parameters usable with -p
-$ docker run varnish varnishd -x parameter
+$ docker run riscv64/varnish varnishd -x parameter
 
 # run the server with your own parameters (don't forget -F to not daemonize)
-$ docker run varnish varnishd -a :8080 -b 127.0.0.1:8181 -t 600 -p feature=+http2
+$ docker run riscv64/varnish varnishd -a :8080 -b 127.0.0.1:8181 -t 600 -p feature=+http2
 ```
 
 ## Exposing the port
@@ -145,22 +145,6 @@ $ docker run --name my-running-varnish --tmpfs /var/lib/varnish:exec -d -p 8080:
 ```
 
 Then you can hit `http://localhost:8080` or `http://host-ip:8080` in your browser.
-
-# Image Variants
-
-The `varnish` images come in many flavors, each designed for a specific use case.
-
-## `varnish:<version>`
-
-This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
-
-## `varnish:<version>-alpine`
-
-This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
-
-This variant is useful when final image size being as small as possible is your primary concern. The main caveat to note is that it does use [musl libc](https://musl.libc.org) instead of [glibc and friends](https://www.etalabs.net/compare_libcs.html), so software will often run into issues depending on the depth of their libc requirements/assumptions. See [this Hacker News comment thread](https://news.ycombinator.com/item?id=10782897) for more discussion of the issues that might arise and some pro/con comparisons of using Alpine-based images.
-
-To minimize image size, it's uncommon for additional related tools (such as `git` or `bash`) to be included in Alpine-based images. Using this image as a base, add the things you need in your own Dockerfile (see the [`alpine` image description](https://hub.docker.com/_/alpine/) for examples of how to install packages if you are unfamiliar).
 
 # License
 

@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `riscv64` builds of [the `rockylinux` official image](https://hub.docker.com/_/rockylinux) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,7 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`latest`, `8`, `8.5`](https://github.com/rocky-linux/sig-cloud-instance-images/blob/eee13752a34b9195c97d0bce92c05a838484eee8/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `riscv64` ARCHITECTURE
+
+[![riscv64/rockylinux build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/riscv64/job/rockylinux.svg?label=riscv64/rockylinux%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/riscv64/job/rockylinux/)
 
 # Quick reference (cont.)
 
@@ -58,17 +62,17 @@ Thank you for using Rocky Linux! We appreciate your feedback and welcome you to 
 
 # Rocky Linux image documentation
 
-The `rockylinux:latest` tag is always the most recent version currently available.
+The `riscv64/rockylinux:latest` tag is always the most recent version currently available.
 
 ## Rolling builds
 
-Rocky Linux offers regularly updated images for all active releases. These images will be updated monthly or as needed for emergency fixes. These rolling updates are tagged with the major version number only. For example: `docker pull rockylinux:8`.
+Rocky Linux offers regularly updated images for all active releases. These images will be updated monthly or as needed for emergency fixes. These rolling updates are tagged with the major version number only. For example: `docker pull riscv64/rockylinux:8`.
 
 ## Minor tags
 
 Additionally, images with minor version tags that correspond to install media are also offered. **These images DO NOT receive updates** as they are intended to match installation iso contents. If you choose to use these images it is highly recommended that you include `RUN yum -y update && yum clean all` in your Dockerfile, or otherwise address any potential security concerns. To use these images, please specify the minor version tag:
 
-For example: `docker pull rockylinux:8.4`
+For example: `docker pull riscv64/rockylinux:8.4`
 
 # Package documentation
 
