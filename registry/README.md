@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `mips64le` builds of [the `registry` official image](https://hub.docker.com/_/registry) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -26,7 +28,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`2.8.0`, `2.8`, `2`, `latest`](https://github.com/docker/distribution-library-image/blob/5fd2614beccba35242694b13f8a37653c05ea852/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `mips64le` ARCHITECTURE
+
+[![mips64le/registry build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/mips64le/job/registry.svg?label=mips64le/registry%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/mips64le/job/registry/)
 
 # Quick reference (cont.)
 
@@ -56,7 +60,7 @@ This image contains an implementation of the Docker Registry HTTP API V2 for use
 ## Run a local registry: Quick Version
 
 ```console
-$ docker run -d -p 5000:5000 --restart always --name registry registry:2
+$ docker run -d -p 5000:5000 --restart always --name registry mips64le/registry:2
 ```
 
 Now, use it from within Docker:
