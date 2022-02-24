@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm64v8` builds of [the `kong` official image](https://hub.docker.com/_/kong) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -26,13 +28,12 @@ WARNING:
 
 -	[`2.7.1-alpine`, `2.7.1`, `2.7`, `alpine`, `latest`](https://github.com/Kong/docker-kong/blob/d47ddd41ea2a489f36d15d3da956709bcf62dcca/alpine/Dockerfile)
 -	[`2.7.1-ubuntu`, `2.7-ubuntu`, `ubuntu`](https://github.com/Kong/docker-kong/blob/d47ddd41ea2a489f36d15d3da956709bcf62dcca/ubuntu/Dockerfile)
--	[`2.7.1-centos`, `2.7-centos`, `centos`](https://github.com/Kong/docker-kong/blob/d47ddd41ea2a489f36d15d3da956709bcf62dcca/centos/Dockerfile)
 -	[`2.6.0-alpine`, `2.6.0`, `2.6`](https://github.com/Kong/docker-kong/blob/37b2520bddf243a14d28fbf616cc3cccf9906d91/alpine/Dockerfile)
 -	[`2.6.0-ubuntu`, `2.6-ubuntu`](https://github.com/Kong/docker-kong/blob/37b2520bddf243a14d28fbf616cc3cccf9906d91/ubuntu/Dockerfile)
--	[`2.6.0-centos`, `2.6-centos`](https://github.com/Kong/docker-kong/blob/37b2520bddf243a14d28fbf616cc3cccf9906d91/centos/Dockerfile)
 -	[`2.5.1-alpine`, `2.5.1`, `2.5`](https://github.com/Kong/docker-kong/blob/74f3a1c189c13b8f94ae15343452fcd27ccce605/alpine/Dockerfile)
 -	[`2.5.1-ubuntu`, `2.5-ubuntu`](https://github.com/Kong/docker-kong/blob/74f3a1c189c13b8f94ae15343452fcd27ccce605/ubuntu/Dockerfile)
--	[`2.5.1-centos`, `2.5-centos`](https://github.com/Kong/docker-kong/blob/74f3a1c189c13b8f94ae15343452fcd27ccce605/centos/Dockerfile)
+
+[![arm64v8/kong build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/kong.svg?label=arm64v8/kong%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/kong/)
 
 # Quick reference (cont.)
 
@@ -77,7 +78,7 @@ $ docker run -d --name kong \
     -p 8443:8443 \
     -p 8001:8001 \
     -p 8444:8444 \
-    kong
+    arm64v8/kong
 ```
 
 Generate a skeleton configuration file to get you started
@@ -138,7 +139,7 @@ $ docker run --rm \
     -e "KONG_PG_USER=kong" \
     -e "KONG_PG_PASSWORD=kong" \
     -e "KONG_CASSANDRA_CONTACT_POINTS=kong-database" \
-    kong kong migrations bootstrap
+    arm64v8/kong kong migrations bootstrap
 ```
 
 In the above example, both Cassandra and PostgreSQL are configured, but you should update the `KONG_DATABASE` environment variable with either `cassandra` or `postgres`.
@@ -165,7 +166,7 @@ $ docker run -d --name kong \
     -p 8443:8443 \
     -p 8001:8001 \
     -p 8444:8444 \
-    kong
+    arm64v8/kong
 ```
 
 If everything went well, and if you created your container with the default ports, Kong should be listening on your host's `8000` ([Proxy](https://docs.konghq.com/latest/configuration/#proxy_port)), `8443` ([Proxy SSL](https://docs.konghq.com/latest/configuration/#proxy_listen_ssl)), `8001` ([Admin API](https://docs.konghq.com/latest/configuration/#admin_listen)) and `8444` ([Admin API SSL](https://docs.konghq.com/latest/configuration/#admin_listen_ssl)) ports.
@@ -188,7 +189,7 @@ $ docker run -d --name kong \
     -p 8443:8443 \
     -p 8001:8001 \
     -p 8444:8444 \
-    kong
+    arm64v8/kong
 ```
 
 ## Reload Kong in a running container
@@ -207,13 +208,13 @@ Among the many deployment options [available](https://konghq.com/install), Kong 
 
 # Image Variants
 
-The `kong` images come in many flavors, each designed for a specific use case.
+The `arm64v8/kong` images come in many flavors, each designed for a specific use case.
 
-## `kong:<version>`
+## `arm64v8/kong:<version>`
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
-## `kong:<version>-alpine`
+## `arm64v8/kong:<version>-alpine`
 
 This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
 

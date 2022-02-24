@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm64v8` builds of [the `tomcat` official image](https://hub.docker.com/_/tomcat) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -134,6 +136,8 @@ WARNING:
 -	[`8.5.75-jdk8-temurin-focal`, `8.5-jdk8-temurin-focal`, `8-jdk8-temurin-focal`, `8.5.75-jdk8-temurin`, `8.5-jdk8-temurin`, `8-jdk8-temurin`](https://github.com/docker-library/tomcat/blob/b4589e782d3ca62a89ffdfcdd9866a8b04546a1d/8.5/jdk8/temurin-focal/Dockerfile)
 -	[`8.5.75-jre8-temurin-focal`, `8.5-jre8-temurin-focal`, `8-jre8-temurin-focal`, `8.5.75-jre8-temurin`, `8.5-jre8-temurin`, `8-jre8-temurin`](https://github.com/docker-library/tomcat/blob/b4589e782d3ca62a89ffdfcdd9866a8b04546a1d/8.5/jre8/temurin-focal/Dockerfile)
 
+[![arm64v8/tomcat build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/tomcat.svg?label=arm64v8/tomcat%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/tomcat/)
+
 # Quick reference (cont.)
 
 -	**Where to file issues**:  
@@ -168,13 +172,13 @@ Apache Tomcat (or simply Tomcat) is an open source web server and servlet contai
 Run the default Tomcat server (`CMD ["catalina.sh", "run"]`):
 
 ```console
-$ docker run -it --rm tomcat:9.0
+$ docker run -it --rm arm64v8/tomcat:9.0
 ```
 
 You can test it by visiting `http://container-ip:8080` in a browser or, if you need access outside the host, on port 8888:
 
 ```console
-$ docker run -it --rm -p 8888:8080 tomcat:9.0
+$ docker run -it --rm -p 8888:8080 arm64v8/tomcat:9.0
 ```
 
 You can then go to `http://localhost:8888` or `http://host-ip:8888` in a browser (noting that it will return a 404 since there are no webapps loaded by default).
@@ -191,9 +195,9 @@ The configuration files are available in `/usr/local/tomcat/conf/`. By default, 
 
 # Image Variants
 
-The `tomcat` images come in many flavors, each designed for a specific use case.
+The `arm64v8/tomcat` images come in many flavors, each designed for a specific use case.
 
-## `tomcat:<version>`
+## `arm64v8/tomcat:<version>`
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
@@ -201,9 +205,9 @@ Some of these tags may have names like bullseye or buster in them. These are the
 
 Some of these tags may have names like focal in them. These are the suite code names for releases of [Ubuntu](https://wiki.ubuntu.com/Releases) and indicate which release the image is based on. If your image needs to install any additional packages beyond what comes with the image, you'll likely want to specify one of these explicitly to minimize breakage when there are new releases of Ubuntu.
 
-## `tomcat:<version>-slim`
+## `arm64v8/tomcat:<version>-slim`
 
-This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `tomcat`. Unless you are working in an environment where *only* the `tomcat` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
+This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `arm64v8/tomcat`. Unless you are working in an environment where *only* the `arm64v8/tomcat` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
 # License
 
