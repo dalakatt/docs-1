@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `amd64` builds of [the `oraclelinux` official image](https://hub.docker.com/_/oraclelinux) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -28,6 +30,8 @@ WARNING:
 -	[`8-slim`](https://github.com/oracle/container-images/blob/d966bafc3fcc5aa861b434b30297e7644ff3e96d/8-slim/Dockerfile)
 -	[`7.9`, `7`](https://github.com/oracle/container-images/blob/d966bafc3fcc5aa861b434b30297e7644ff3e96d/7/Dockerfile)
 -	[`7-slim`](https://github.com/oracle/container-images/blob/d966bafc3fcc5aa861b434b30297e7644ff3e96d/7-slim/Dockerfile)
+
+[![amd64/oraclelinux build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/oraclelinux.svg?label=amd64/oraclelinux%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/oraclelinux/)
 
 # Quick reference (cont.)
 
@@ -60,7 +64,7 @@ Oracle maintains a [CHANGELOG](https://github.com/oracle/container-images/blob/m
 
 ## How to use these images
 
-The Oracle Linux images are intended for use in the **FROM** field of a downstream `Dockerfile`. For example, to use the latest optimized Oracle Linux 8 i mage, specify `FROM oraclelinux:8`.
+The Oracle Linux images are intended for use in the **FROM** field of a downstream `Dockerfile`. For example, to use the latest optimized Oracle Linux 8 i mage, specify `FROM amd64/oraclelinux:8`.
 
 ### Removal of `latest` tag
 

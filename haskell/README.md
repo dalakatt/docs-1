@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `amd64` builds of [the `haskell` official image](https://hub.docker.com/_/haskell) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -27,6 +29,8 @@ WARNING:
 -	[`9.2.1-buster`, `9.2-buster`, `9-buster`, `buster`, `9.2.1`, `9.2`, `9`, `latest`](https://github.com/haskell/docker-haskell/blob/5f8acc1199035266b1cc74fcc47d8ea114268076/9.2/buster/Dockerfile)
 -	[`9.0.2-buster`, `9.0-buster`, `9.0.2`, `9.0`](https://github.com/haskell/docker-haskell/blob/5f8acc1199035266b1cc74fcc47d8ea114268076/9.0/buster/Dockerfile)
 -	[`8.10.7-buster`, `8.10-buster`, `8-buster`, `8.10.7`, `8.10`, `8`](https://github.com/haskell/docker-haskell/blob/5f8acc1199035266b1cc74fcc47d8ea114268076/8.10/buster/Dockerfile)
+
+[![amd64/haskell build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/haskell.svg?label=amd64/haskell%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/haskell/)
 
 # Quick reference (cont.)
 
@@ -74,7 +78,7 @@ Additionally, we aim to support the two most recent versions of Debian (`stable`
 Start an interactive interpreter session with `ghci`:
 
 ```console
-$ docker run -it --rm haskell:9
+$ docker run -it --rm amd64/haskell:9
 GHCi, version 9.0.1: http://www.haskell.org/ghc/  :? for help
 Prelude>
 ```
@@ -82,7 +86,7 @@ Prelude>
 Dockerize an application using `stack`:
 
 ```dockerfile
-FROM haskell:8.10
+FROM amd64/haskell:8.10
 RUN stack install --resolver lts-17.14 pandoc citeproc
 ENTRYPOINT ["pandoc"]
 ```
@@ -90,7 +94,7 @@ ENTRYPOINT ["pandoc"]
 Dockerize an application using `cabal`:
 
 ```dockerfile
-FROM haskell:8.10
+FROM amd64/haskell:8.10
 RUN cabal update && cabal install pandoc citeproc
 ENTRYPOINT ["pandoc"]
 ```
@@ -98,7 +102,7 @@ ENTRYPOINT ["pandoc"]
 Iteratively develop a Haskell application with a `Dockerfile` utilizing the build cache:
 
 ```dockerfile
-FROM haskell:8
+FROM amd64/haskell:8
 
 WORKDIR /opt/example
 
@@ -121,7 +125,7 @@ CMD ["example"]
 
 ### Considerations for `happy`, `alex`, etc
 
-Some packages that also act as build dependencies, such as `happy` and `alex`, are no longer included in this image (as of `haskell:8.2.2` & `haskell:8.4.3`). There is a bootstrapping problem where one or more of these tools may be assumed to be available. If you run in to an error about missing dependencies that are not explicitly called out in a Cabal package, you will need to explicitly mark them for installation.
+Some packages that also act as build dependencies, such as `happy` and `alex`, are no longer included in this image (as of `amd64/haskell:8.2.2` & `amd64/haskell:8.4.3`). There is a bootstrapping problem where one or more of these tools may be assumed to be available. If you run in to an error about missing dependencies that are not explicitly called out in a Cabal package, you will need to explicitly mark them for installation.
 
 ### Considerations for Stack
 
@@ -141,7 +145,7 @@ Compiler version mismatched, found ghc-8.4.3 (x86_64), but expected minor versio
 To install the correct GHC into /root/.stack/programs/x86_64-linux/, try running "stack setup" or use the "--install-ghc" flag.
 ```
 
-In this case, the GHC release in the `haskell` Docker image got ahead of the default Stack resolver expected version of GHC. As the output suggests, manually setting the resolver (typically via `stack.yml`) is the recommended approach.
+In this case, the GHC release in the `amd64/haskell` Docker image got ahead of the default Stack resolver expected version of GHC. As the output suggests, manually setting the resolver (typically via `stack.yml`) is the recommended approach.
 
 ```console
 Step 2/3 : RUN stack install --resolver ghc-8.4.3 pandoc
@@ -153,7 +157,7 @@ Updating package index Hackage (mirrored at https://s3.amazonaws.com/hackage.fpc
 Selected mirror https://s3.amazonaws.com/hackage.fpcomplete.com/
 ```
 
-The alternative to use `--install-ghc` doesn't make sense in a Docker image context, and hence the global `install-ghc` flag has been set to `false` (as of `haskell:8.2.2` & `haskell:8.4.3`) to avoid the default behavior of bootstrapping a new GHC in the container.
+The alternative to use `--install-ghc` doesn't make sense in a Docker image context, and hence the global `install-ghc` flag has been set to `false` (as of `amd64/haskell:8.2.2` & `amd64/haskell:8.4.3`) to avoid the default behavior of bootstrapping a new GHC in the container.
 
 # License
 

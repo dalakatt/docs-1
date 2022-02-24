@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `amd64` builds of [the `dart` official image](https://hub.docker.com/_/dart) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -26,6 +28,8 @@ WARNING:
 
 -	[`2.16.1-sdk`, `2.16-sdk`, `2-sdk`, `stable-sdk`, `sdk`, `2.16.1`, `2.16`, `2`, `stable`, `latest`](https://github.com/dart-lang/dart-docker/blob/18d58b09b4cec74be929ce5bc53ce6515415c88a/stable/bullseye/Dockerfile)
 -	[`2.17.0-69.2.beta-sdk`, `beta-sdk`, `2.17.0-69.2.beta`, `beta`](https://github.com/dart-lang/dart-docker/blob/18d58b09b4cec74be929ce5bc53ce6515415c88a/beta/bullseye/Dockerfile)
+
+[![amd64/dart build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/dart.svg?label=amd64/dart%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/dart/)
 
 # Quick reference (cont.)
 
